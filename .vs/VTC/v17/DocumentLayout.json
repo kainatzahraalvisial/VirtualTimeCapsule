@@ -1,0 +1,156 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Ali\\source\\repos\\VTC\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A8AB0041-A648-424F-ABFA-DD2004246B17}|VTC\\VTC.csproj|c:\\users\\ali\\source\\repos\\vtc\\vtc\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{A8AB0041-A648-424F-ABFA-DD2004246B17}|VTC\\VTC.csproj|solutionrelative:vtc\\wwwroot\\css\\app.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8AB0041-A648-424F-ABFA-DD2004246B17}|VTC\\VTC.csproj|c:\\users\\ali\\source\\repos\\vtc\\vtc\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A8AB0041-A648-424F-ABFA-DD2004246B17}|VTC\\VTC.csproj|solutionrelative:vtc\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8AB0041-A648-424F-ABFA-DD2004246B17}|VTC\\VTC.csproj|c:\\users\\ali\\source\\repos\\vtc\\vtc\\layout\\footer.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A8AB0041-A648-424F-ABFA-DD2004246B17}|VTC\\VTC.csproj|solutionrelative:vtc\\layout\\footer.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8AB0041-A648-424F-ABFA-DD2004246B17}|VTC\\VTC.csproj|c:\\users\\ali\\source\\repos\\vtc\\vtc\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A8AB0041-A648-424F-ABFA-DD2004246B17}|VTC\\VTC.csproj|solutionrelative:vtc\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8AB0041-A648-424F-ABFA-DD2004246B17}|VTC\\VTC.csproj|c:\\users\\ali\\source\\repos\\vtc\\vtc\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A8AB0041-A648-424F-ABFA-DD2004246B17}|VTC\\VTC.csproj|solutionrelative:vtc\\layout\\mainlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8AB0041-A648-424F-ABFA-DD2004246B17}|VTC\\VTC.csproj|c:\\users\\ali\\source\\repos\\vtc\\vtc\\layout\\dashboardlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A8AB0041-A648-424F-ABFA-DD2004246B17}|VTC\\VTC.csproj|solutionrelative:vtc\\layout\\dashboardlayout.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8AB0041-A648-424F-ABFA-DD2004246B17}|VTC\\VTC.csproj|c:\\users\\ali\\source\\repos\\vtc\\vtc\\wwwroot\\js\\navbar.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{A8AB0041-A648-424F-ABFA-DD2004246B17}|VTC\\VTC.csproj|solutionrelative:vtc\\wwwroot\\js\\navbar.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A8AB0041-A648-424F-ABFA-DD2004246B17}|VTC\\VTC.csproj|c:\\users\\ali\\source\\repos\\vtc\\vtc\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{A8AB0041-A648-424F-ABFA-DD2004246B17}|VTC\\VTC.csproj|solutionrelative:vtc\\wwwroot\\index.html||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\Layout\\MainLayout.razor",
+              "RelativeDocumentMoniker": "VTC\\Layout\\MainLayout.razor",
+              "ToolTip": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\Layout\\MainLayout.razor",
+              "RelativeToolTip": "VTC\\Layout\\MainLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-10T14:21:25.612Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Footer.razor",
+              "DocumentMoniker": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\Layout\\Footer.razor",
+              "RelativeDocumentMoniker": "VTC\\Layout\\Footer.razor",
+              "ToolTip": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\Layout\\Footer.razor",
+              "RelativeToolTip": "VTC\\Layout\\Footer.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAOAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-10T14:20:52.653Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DashBoardLayout.razor",
+              "DocumentMoniker": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\Layout\\DashBoardLayout.razor",
+              "RelativeDocumentMoniker": "VTC\\Layout\\DashBoardLayout.razor",
+              "ToolTip": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\Layout\\DashBoardLayout.razor",
+              "RelativeToolTip": "VTC\\Layout\\DashBoardLayout.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-10T14:19:15.283Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "navbar.js",
+              "DocumentMoniker": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\wwwroot\\js\\navbar.js",
+              "RelativeDocumentMoniker": "VTC\\wwwroot\\js\\navbar.js",
+              "ToolTip": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\wwwroot\\js\\navbar.js",
+              "RelativeToolTip": "VTC\\wwwroot\\js\\navbar.js",
+              "ViewState": "AgIAABoAAAAAAAAAAAAIwCMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2025-03-09T09:07:05.476Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "NavMenu.razor",
+              "DocumentMoniker": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\Layout\\NavMenu.razor",
+              "RelativeDocumentMoniker": "VTC\\Layout\\NavMenu.razor",
+              "ToolTip": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\Layout\\NavMenu.razor",
+              "RelativeToolTip": "VTC\\Layout\\NavMenu.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-08T04:24:01.381Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "app.css",
+              "DocumentMoniker": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\wwwroot\\css\\app.css",
+              "RelativeDocumentMoniker": "VTC\\wwwroot\\css\\app.css",
+              "ToolTip": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\wwwroot\\css\\app.css",
+              "RelativeToolTip": "VTC\\wwwroot\\css\\app.css",
+              "ViewState": "AgIAAJ4AAAAAnMzMzMwGwKsAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2025-03-08T04:16:29.769Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Home.razor",
+              "DocumentMoniker": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\Pages\\Home.razor",
+              "RelativeDocumentMoniker": "VTC\\Pages\\Home.razor",
+              "ToolTip": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\Pages\\Home.razor",
+              "RelativeToolTip": "VTC\\Pages\\Home.razor",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-08T03:47:44.291Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "index.html",
+              "DocumentMoniker": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\wwwroot\\index.html",
+              "RelativeDocumentMoniker": "VTC\\wwwroot\\index.html",
+              "ToolTip": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\wwwroot\\index.html",
+              "RelativeToolTip": "VTC\\wwwroot\\index.html",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001512|",
+              "WhenOpened": "2025-03-08T05:05:20.55Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
