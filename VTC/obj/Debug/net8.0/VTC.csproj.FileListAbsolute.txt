@@ -1033,6 +1033,7 @@ C:\Users\Ali\source\repos\VTC\VTC\obj\Debug\net8.0\VTC.dll
 C:\Users\Ali\source\repos\VTC\VTC\obj\Debug\net8.0\refint\VTC.dll
 C:\Users\Ali\source\repos\VTC\VTC\obj\Debug\net8.0\VTC.pdb
 C:\Users\Ali\source\repos\VTC\VTC\obj\Debug\net8.0\ref\VTC.dll
-C:\Users\Ali\source\repos\VTC\VTC\obj\Debug\net8.0\compressed\w1vm2bll6y-ayyc5a2yb0.gz
-C:\Users\Ali\source\repos\VTC\VTC\obj\Debug\net8.0\compressed\jia40h42zf-6vfe9yiwz1.gz
-C:\Users\Ali\source\repos\VTC\VTC\obj\Debug\net8.0\compressed\tqbub7n3fa-6i2p1akcog.gz
+C:\Users\Ali\source\repos\VTC\VTC\obj\Debug\net8.0\VTC.sourcelink.json
+C:\Users\Ali\source\repos\VTC\VTC\obj\Debug\net8.0\compressed\w1vm2bll6y-dsocbhfhxq.gz
+C:\Users\Ali\source\repos\VTC\VTC\obj\Debug\net8.0\compressed\jia40h42zf-12c4hk2abz.gz
+C:\Users\Ali\source\repos\VTC\VTC\obj\Debug\net8.0\compressed\tqbub7n3fa-l09deeffwx.gz

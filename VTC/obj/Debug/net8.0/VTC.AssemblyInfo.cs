@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("VTC")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+c95ae1f09b69faf2ca8fc42ff74605334b8914ed")]
 [assembly: System.Reflection.AssemblyProductAttribute("VTC")]
 [assembly: System.Reflection.AssemblyTitleAttribute("VTC")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

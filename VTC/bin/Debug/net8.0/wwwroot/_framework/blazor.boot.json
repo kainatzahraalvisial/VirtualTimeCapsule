@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "VTC",
   "resources": {
-    "hash": "sha256-heuonyA+djp9zbiKzPZaQn+GVa3m885tmwWfR+FTWjQ=",
+    "hash": "sha256-ir4ziG9y7YJIdNPWkFFrkGb7FopcsF4GqsUJGMrsND4=",
     "jsModuleNative": {
       "dotnet.native.js": "sha256-xNQsYHtL1vcbrVTHDZAwJM4WovpoyjsrM2C6FQ8cW1w="
     },
@@ -209,10 +209,10 @@
       "mscorlib.wasm": "sha256-RAf5jgXLg+06C4tJ3CabxAZaVjCN2/+E6fxRjRN8yHk=",
       "netstandard.wasm": "sha256-KCAE8RQwTurP5pGnGF819qf9sK++2O0rXzt6tOjlfi8=",
       "System.Private.CoreLib.wasm": "sha256-LQqLbHgeEX4HONx7GwIxGgmzIXP6n2OPxqnq+/4Tyqk=",
-      "VTC.wasm": "sha256-8mhRgycOCWIz78Fp/XrBwuzwD7T6214kGo1FTyjpqBs="
+      "VTC.wasm": "sha256-g/iqh3UP+nHzl1rtXjnctPUfhxGmNRpzbwxaMF1DlMs="
     },
     "pdb": {
-      "VTC.pdb": "sha256-LifnKisSlLDClCzLHlZB3Y0u+WorVdrBvcuKANL8p9M="
+      "VTC.pdb": "sha256-CTfv9QYO/5U9q1QMezHnqCENm1ftakbqL/gWuN0YqQk="
     }
   },
   "cacheBootResources": true,

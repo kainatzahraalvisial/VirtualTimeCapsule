@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "LL7qnMQ4Vig5rlbmfoEiTh363F40Y5Dta62aMIVWqo8=",
+  "Hash": "M47KQyR9BYR8piBKAsb7AFhNT3bBnJ5QikMMGjulIGc=",
   "Source": "VTC",
   "BasePath": "/",
   "Mode": "Root",
@@ -31,8 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "manifest",
-      "Fingerprint": "6i2p1akcog",
-      "Integrity": "7iFmUOLUaY1g58RXSrM+d9ZjhrlCw117NU/n/uA85jw=",
+      "Fingerprint": "l09deeffwx",
+      "Integrity": "GxsfWnY6BQPgIGmFfqADF5PnZoMJN2R1P39f9jCZeNQ=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net8.0\\blazor.boot.json"
@@ -4273,8 +4273,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "symbol",
-      "Fingerprint": "6vfe9yiwz1",
-      "Integrity": "LifnKisSlLDClCzLHlZB3Y0u+WorVdrBvcuKANL8p9M=",
+      "Fingerprint": "12c4hk2abz",
+      "Integrity": "CTfv9QYO/5U9q1QMezHnqCENm1ftakbqL/gWuN0YqQk=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net8.0\\VTC.pdb"
@@ -4294,8 +4294,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "ayyc5a2yb0",
-      "Integrity": "8mhRgycOCWIz78Fp/XrBwuzwD7T6214kGo1FTyjpqBs=",
+      "Fingerprint": "dsocbhfhxq",
+      "Integrity": "g/iqh3UP+nHzl1rtXjnctPUfhxGmNRpzbwxaMF1DlMs=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\webcil\\VTC.wasm"
@@ -6653,7 +6653,7 @@
       "OriginalItemSpec": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.IO.Compression.Brotli.wasm"
     },
     {
-      "Identity": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\jia40h42zf-6vfe9yiwz1.gz",
+      "Identity": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\jia40h42zf-12c4hk2abz.gz",
       "SourceId": "VTC",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\",
@@ -6667,8 +6667,8 @@
       "RelatedAsset": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\bin\\Debug\\net8.0\\wwwroot\\_framework\\VTC.pdb",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "ham3bjzqyp",
-      "Integrity": "mVrethmxxRJmcIDXwJEVHtY5azn9ahqXwYHm/it6yGs=",
+      "Fingerprint": "uasjyl5qs4",
+      "Integrity": "BrzOcndamEN7cecJFm+b0UnwjKB4K5QlUdas2OH8yFU=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\bin\\Debug\\net8.0\\wwwroot\\_framework\\VTC.pdb"
@@ -8039,7 +8039,7 @@
       "OriginalItemSpec": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Resources.Writer.wasm"
     },
     {
-      "Identity": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\tqbub7n3fa-6i2p1akcog.gz",
+      "Identity": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\tqbub7n3fa-l09deeffwx.gz",
       "SourceId": "VTC",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\",
@@ -8053,8 +8053,8 @@
       "RelatedAsset": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.boot.json",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "o9g8mgx0lh",
-      "Integrity": "XCquE36krOcbRM2fYniTD/5oqQMziEeI0O1nzwsIGq8=",
+      "Fingerprint": "a97u6hdh8m",
+      "Integrity": "wsUF85+iVAX0jk5dOKQIzVDaSIRFPasN/nRveqSk8yM=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.boot.json"
@@ -8333,7 +8333,7 @@
       "OriginalItemSpec": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.ComponentModel.Annotations.wasm"
     },
     {
-      "Identity": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\w1vm2bll6y-ayyc5a2yb0.gz",
+      "Identity": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\w1vm2bll6y-dsocbhfhxq.gz",
       "SourceId": "VTC",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\",
@@ -8347,8 +8347,8 @@
       "RelatedAsset": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\bin\\Debug\\net8.0\\wwwroot\\_framework\\VTC.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "k83j96b51x",
-      "Integrity": "JAhGVT9bIhkEYgmtjrGcfQSlTfp7wCj/4SHtU9eHM3o=",
+      "Fingerprint": "mo8qowd4yt",
+      "Integrity": "dhbhblOepwYM32jTpKlqBUjRnQ/ACSPy8+IagrcrBIg=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\bin\\Debug\\net8.0\\wwwroot\\_framework\\VTC.wasm"
@@ -8683,8 +8683,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "dt7tse1eu5",
-      "Integrity": "Lw9gVNYUe8m4lxKfm3L1icF2beEWcDyaMZzCHucQ6P0=",
+      "Fingerprint": "mtf0zcugzr",
+      "Integrity": "GuOHQZwh69wU7LUczVe61dmBG5XUqMWGc4ec5mMiNZg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\app.css"
@@ -8878,7 +8878,46 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"7iFmUOLUaY1g58RXSrM+d9ZjhrlCw117NU/n/uA85jw=\""
+          "Value": "\"GxsfWnY6BQPgIGmFfqADF5PnZoMJN2R1P39f9jCZeNQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 19 Apr 2025 08:07:42 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-GxsfWnY6BQPgIGmFfqADF5PnZoMJN2R1P39f9jCZeNQ="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/blazor.boot.json",
+      "AssetFile": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\tqbub7n3fa-l09deeffwx.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000115273775"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8674"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"wsUF85+iVAX0jk5dOKQIzVDaSIRFPasN/nRveqSk8yM=\""
         },
         {
           "Name": "Last-Modified",
@@ -8887,45 +8926,6 @@
         {
           "Name": "Cache-Control",
           "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-7iFmUOLUaY1g58RXSrM+d9ZjhrlCw117NU/n/uA85jw="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/blazor.boot.json",
-      "AssetFile": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\tqbub7n3fa-6i2p1akcog.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000115207373"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "8679"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"XCquE36krOcbRM2fYniTD/5oqQMziEeI0O1nzwsIGq8=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:30:54 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -8941,19 +8941,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"7iFmUOLUaY1g58RXSrM+d9ZjhrlCw117NU/n/uA85jw=\""
+          "Value": "W/\"GxsfWnY6BQPgIGmFfqADF5PnZoMJN2R1P39f9jCZeNQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-7iFmUOLUaY1g58RXSrM+d9ZjhrlCw117NU/n/uA85jw="
+          "Value": "sha256-GxsfWnY6BQPgIGmFfqADF5PnZoMJN2R1P39f9jCZeNQ="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json.gz",
-      "AssetFile": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\tqbub7n3fa-6i2p1akcog.gz",
+      "AssetFile": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\tqbub7n3fa-l09deeffwx.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8962,7 +8962,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8679"
+          "Value": "8674"
         },
         {
           "Name": "Content-Type",
@@ -8970,11 +8970,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"XCquE36krOcbRM2fYniTD/5oqQMziEeI0O1nzwsIGq8=\""
+          "Value": "\"wsUF85+iVAX0jk5dOKQIzVDaSIRFPasN/nRveqSk8yM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:30:54 GMT"
+          "Value": "Mon, 10 Mar 2025 15:47:50 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8992,7 +8992,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-XCquE36krOcbRM2fYniTD/5oqQMziEeI0O1nzwsIGq8="
+          "Value": "sha256-wsUF85+iVAX0jk5dOKQIzVDaSIRFPasN/nRveqSk8yM="
         }
       ]
     },
@@ -36544,7 +36544,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "24680"
+          "Value": "24820"
         },
         {
           "Name": "Content-Type",
@@ -36552,7 +36552,46 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"LifnKisSlLDClCzLHlZB3Y0u+WorVdrBvcuKANL8p9M=\""
+          "Value": "\"CTfv9QYO/5U9q1QMezHnqCENm1ftakbqL/gWuN0YqQk=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 19 Apr 2025 08:07:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CTfv9QYO/5U9q1QMezHnqCENm1ftakbqL/gWuN0YqQk="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/VTC.pdb",
+      "AssetFile": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\jia40h42zf-12c4hk2abz.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000053033517"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "18855"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"BrzOcndamEN7cecJFm+b0UnwjKB4K5QlUdas2OH8yFU=\""
         },
         {
           "Name": "Last-Modified",
@@ -36561,45 +36600,6 @@
         {
           "Name": "Cache-Control",
           "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-LifnKisSlLDClCzLHlZB3Y0u+WorVdrBvcuKANL8p9M="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/VTC.pdb",
-      "AssetFile": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\jia40h42zf-6vfe9yiwz1.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000054614965"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "18309"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"mVrethmxxRJmcIDXwJEVHtY5azn9ahqXwYHm/it6yGs=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:30:52 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -36615,19 +36615,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"LifnKisSlLDClCzLHlZB3Y0u+WorVdrBvcuKANL8p9M=\""
+          "Value": "W/\"CTfv9QYO/5U9q1QMezHnqCENm1ftakbqL/gWuN0YqQk=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-LifnKisSlLDClCzLHlZB3Y0u+WorVdrBvcuKANL8p9M="
+          "Value": "sha256-CTfv9QYO/5U9q1QMezHnqCENm1ftakbqL/gWuN0YqQk="
         }
       ]
     },
     {
       "Route": "_framework/VTC.pdb.gz",
-      "AssetFile": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\jia40h42zf-6vfe9yiwz1.gz",
+      "AssetFile": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\jia40h42zf-12c4hk2abz.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -36636,7 +36636,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "18309"
+          "Value": "18855"
         },
         {
           "Name": "Content-Type",
@@ -36644,11 +36644,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"mVrethmxxRJmcIDXwJEVHtY5azn9ahqXwYHm/it6yGs=\""
+          "Value": "\"BrzOcndamEN7cecJFm+b0UnwjKB4K5QlUdas2OH8yFU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:30:52 GMT"
+          "Value": "Mon, 10 Mar 2025 15:47:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36666,7 +36666,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-mVrethmxxRJmcIDXwJEVHtY5azn9ahqXwYHm/it6yGs="
+          "Value": "sha256-BrzOcndamEN7cecJFm+b0UnwjKB4K5QlUdas2OH8yFU="
         }
       ]
     },
@@ -36681,7 +36681,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "18197"
+          "Value": "19221"
         },
         {
           "Name": "Content-Type",
@@ -36689,7 +36689,46 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"8mhRgycOCWIz78Fp/XrBwuzwD7T6214kGo1FTyjpqBs=\""
+          "Value": "\"g/iqh3UP+nHzl1rtXjnctPUfhxGmNRpzbwxaMF1DlMs=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 19 Apr 2025 08:07:40 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-g/iqh3UP+nHzl1rtXjnctPUfhxGmNRpzbwxaMF1DlMs="
+        }
+      ]
+    },
+    {
+      "Route": "_framework/VTC.wasm",
+      "AssetFile": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\w1vm2bll6y-dsocbhfhxq.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000118035883"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "8471"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"dhbhblOepwYM32jTpKlqBUjRnQ/ACSPy8+IagrcrBIg=\""
         },
         {
           "Name": "Last-Modified",
@@ -36698,45 +36737,6 @@
         {
           "Name": "Cache-Control",
           "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-8mhRgycOCWIz78Fp/XrBwuzwD7T6214kGo1FTyjpqBs="
-        }
-      ]
-    },
-    {
-      "Route": "_framework/VTC.wasm",
-      "AssetFile": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\w1vm2bll6y-ayyc5a2yb0.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000124766064"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "8014"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"JAhGVT9bIhkEYgmtjrGcfQSlTfp7wCj/4SHtU9eHM3o=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:30:52 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
         },
         {
           "Name": "Content-Encoding",
@@ -36752,19 +36752,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"8mhRgycOCWIz78Fp/XrBwuzwD7T6214kGo1FTyjpqBs=\""
+          "Value": "W/\"g/iqh3UP+nHzl1rtXjnctPUfhxGmNRpzbwxaMF1DlMs=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-8mhRgycOCWIz78Fp/XrBwuzwD7T6214kGo1FTyjpqBs="
+          "Value": "sha256-g/iqh3UP+nHzl1rtXjnctPUfhxGmNRpzbwxaMF1DlMs="
         }
       ]
     },
     {
       "Route": "_framework/VTC.wasm.gz",
-      "AssetFile": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\w1vm2bll6y-ayyc5a2yb0.gz",
+      "AssetFile": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\obj\\Debug\\net8.0\\compressed\\w1vm2bll6y-dsocbhfhxq.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -36773,7 +36773,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8014"
+          "Value": "8471"
         },
         {
           "Name": "Content-Type",
@@ -36781,11 +36781,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"JAhGVT9bIhkEYgmtjrGcfQSlTfp7wCj/4SHtU9eHM3o=\""
+          "Value": "\"dhbhblOepwYM32jTpKlqBUjRnQ/ACSPy8+IagrcrBIg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 14:30:52 GMT"
+          "Value": "Mon, 10 Mar 2025 15:47:48 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36803,7 +36803,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-JAhGVT9bIhkEYgmtjrGcfQSlTfp7wCj/4SHtU9eHM3o="
+          "Value": "sha256-dhbhblOepwYM32jTpKlqBUjRnQ/ACSPy8+IagrcrBIg="
         }
       ]
     },
@@ -36955,7 +36955,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5487"
+          "Value": "835"
         },
         {
           "Name": "Content-Type",
@@ -36963,11 +36963,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Lw9gVNYUe8m4lxKfm3L1icF2beEWcDyaMZzCHucQ6P0=\""
+          "Value": "\"GuOHQZwh69wU7LUczVe61dmBG5XUqMWGc4ec5mMiNZg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 15:47:15 GMT"
+          "Value": "Sat, 19 Apr 2025 08:03:45 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36977,12 +36977,12 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Lw9gVNYUe8m4lxKfm3L1icF2beEWcDyaMZzCHucQ6P0="
+          "Value": "sha256-GuOHQZwh69wU7LUczVe61dmBG5XUqMWGc4ec5mMiNZg="
         }
       ]
     },
     {
-      "Route": "css/app.dt7tse1eu5.css",
+      "Route": "css/app.mtf0zcugzr.css",
       "AssetFile": "C:\\Users\\Ali\\source\\repos\\VTC\\VTC\\wwwroot\\css\\app.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -36992,7 +36992,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "5487"
+          "Value": "835"
         },
         {
           "Name": "Content-Type",
@@ -37000,11 +37000,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Lw9gVNYUe8m4lxKfm3L1icF2beEWcDyaMZzCHucQ6P0=\""
+          "Value": "\"GuOHQZwh69wU7LUczVe61dmBG5XUqMWGc4ec5mMiNZg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Mon, 10 Mar 2025 15:47:15 GMT"
+          "Value": "Sat, 19 Apr 2025 08:03:45 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -37014,7 +37014,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "dt7tse1eu5"
+          "Value": "mtf0zcugzr"
         },
         {
           "Name": "label",
@@ -37022,7 +37022,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Lw9gVNYUe8m4lxKfm3L1icF2beEWcDyaMZzCHucQ6P0="
+          "Value": "sha256-GuOHQZwh69wU7LUczVe61dmBG5XUqMWGc4ec5mMiNZg="
         }
       ]
     },
