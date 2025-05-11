@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Ali\\source\\repos\\time-capsule\\time-capsule.csproj": {}
+    "C:\\Users\\Ali\\source\\repos\\VirtualTimeCapsule\\time-capsule\\time-capsule.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Ali\\source\\repos\\time-capsule\\time-capsule.csproj": {
+    "C:\\Users\\Ali\\source\\repos\\VirtualTimeCapsule\\time-capsule\\time-capsule.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Ali\\source\\repos\\time-capsule\\time-capsule.csproj",
+        "projectUniqueName": "C:\\Users\\Ali\\source\\repos\\VirtualTimeCapsule\\time-capsule\\time-capsule.csproj",
         "projectName": "time-capsule",
-        "projectPath": "C:\\Users\\Ali\\source\\repos\\time-capsule\\time-capsule.csproj",
+        "projectPath": "C:\\Users\\Ali\\source\\repos\\VirtualTimeCapsule\\time-capsule\\time-capsule.csproj",
         "packagesPath": "C:\\Users\\Ali\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Ali\\source\\repos\\time-capsule\\obj\\",
+        "outputPath": "C:\\Users\\Ali\\source\\repos\\VirtualTimeCapsule\\time-capsule\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("time-capsule")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3f0c346fdc864a38f564401c5f97c94400eaed58")]
 [assembly: System.Reflection.AssemblyProductAttribute("time-capsule")]
 [assembly: System.Reflection.AssemblyTitleAttribute("time-capsule")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
