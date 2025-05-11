@@ -1,0 +1,290 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main role="main" class="flex-grow-1">
+    <section class="hero-section position-relative min-vh-100 d-flex align-items-center">
+        <div id="three-container" class="position-absolute top-0 start-0 w-100 h-100 z-n1"></div>
+        <div class="container d-flex justify-content-between align-items-center z-1">
+            <div class="text-left" style="max-width: 50%;">
+                <h1 class="display-3 fw-bold cosmic-text">
+                    <span>E</span><span>m</span><span>b</span><span>a</span><span>r</span><span>k</span><span> </span>
+                    <span>o</span><span>n</span><span> </span><span>a</span><span> </span>
+                    <span>C</span><span>o</span><span>s</span><span>m</span><span>i</span><span>c</span><span> </span>
+                    <span>J</span><span>o</span><span>u</span><span>r</span><span>n</span><span>e</span><span>y</span><span>—</span>
+                    <span>S</span><span>e</span><span>a</span><span>l</span><span> </span>
+                    <span>Y</span><span>o</span><span>u</span><span>r</span><span> </span>
+                    <span>M</span><span>e</span><span>m</span><span>o</span><span>r</span><span>i</span><span>e</span><span>s</span><span> </span>
+                    <span>i</span><span>n</span><span> </span>
+                    <span>t</span><span>h</span><span>e</span><span> </span>
+                    <span>S</span><span>t</span><span>a</span><span>r</span><span>s</span><span>!</span>
+                </h1>
+                <p class="lead cosmic-subtext">Craft a Digital Time Capsule, Lock It in the Galaxy, and Rediscover Your Past in the Future.</p>
+                <a href="#" class="btn cosmic-button mt-3">Create Capsule Now</a>
+            </div>
+            <div id="capsule-container" style="width: 50%; height: 100%; position: absolute; right: 0; top: 0;"></div>
+        </div>
+    </section>
+</main>
+
+@section Scripts {
+    <script type="module">
+        import * as THREE from 'three';
+        import { FBXLoader } from 'three/addons/loaders/FBXLoader.js';
+
+        // Scene for stars (full screen)
+        const starScene = new THREE.Scene();
+        starScene.background = new THREE.Color(0x000000);
+        const starCamera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const starRenderer = new THREE.WebGLRenderer({ alpha: true });
+        const starContainer = document.getElementById('three-container');
+
+        if (!starContainer) {
+            console.error("Star container not found!");
+        } else {
+            starRenderer.setSize(window.innerWidth, window.innerHeight);
+            starContainer.appendChild(starRenderer.domElement);
+            console.log("Star renderer initialized and appended to container.");
+        }
+
+        // Scene for capsule (right half)
+        const capsuleScene = new THREE.Scene();
+        const capsuleCamera = new THREE.PerspectiveCamera(75, 1, 0.1, 1000); // Aspect ratio will be updated
+        const capsuleRenderer = new THREE.WebGLRenderer({ alpha: true });
+        const capsuleContainer = document.getElementById('capsule-container');
+
+        if (!capsuleContainer) {
+            console.error("Capsule container not found!");
+        } else {
+            const containerRect = capsuleContainer.getBoundingClientRect();
+            capsuleRenderer.setSize(containerRect.width, containerRect.height);
+            capsuleContainer.appendChild(capsuleRenderer.domElement);
+            capsuleCamera.aspect = containerRect.width / containerRect.height;
+            capsuleCamera.updateProjectionMatrix();
+            console.log("Capsule renderer initialized and appended to container.");
+        }
+
+        // Stars setup
+        const starGeometry = new THREE.BufferGeometry();
+        const starCount = 5000;
+        const positions = new Float32Array(starCount * 3);
+        const colors = new Float32Array(starCount * 3);
+        for (let i = 0; i < starCount * 3; i += 3) {
+            positions[i] = (Math.random() - 0.5) * 2000;
+            positions[i + 1] = (Math.random() - 0.5) * 2000;
+            positions[i + 2] = (Math.random() - 0.5) * 2000;
+            colors[i] = Math.random();
+            colors[i + 1] = Math.random();
+            colors[i + 2] = 1;
+        }
+        starGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        starGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+        const starMaterial = new THREE.PointsMaterial({ size: 2, vertexColors: true, transparent: true });
+        const stars = new THREE.Points(starGeometry, starMaterial);
+        starScene.add(stars);
+        console.log("Stars added to scene.");
+
+        // Capsule setup
+        const fbxLoader = new FBXLoader();
+        let capsule;
+        fbxLoader.load(
+            '/models/capsule.fbx',
+            (object) => {
+                console.log("Capsule model loaded successfully.");
+                capsule = object;
+                capsule.scale.set(1.0, 1.0, 1.0);
+                capsule.position.set(0, 0, 0); // Centered in the capsule container
+                console.log("Capsule position set to:", capsule.position);
+
+                const mainMaterial = new THREE.MeshStandardMaterial({
+                    color: 0x333333,
+                    metalness: 0.9,
+                    roughness: 0.1,
+                    emissive: 0x111111,
+                    emissiveIntensity: 0.5
+                });
+
+                const glowMaterial = new THREE.MeshStandardMaterial({
+                    color: 0x00ffff,
+                    metalness: 0.8,
+                    roughness: 0.1,
+                    emissive: 0x00ffff,
+                    emissiveIntensity: 5.0,
+                    transparent: false,
+                    opacity: 1.0
+                });
+
+                const middleMaterial = new THREE.MeshStandardMaterial({
+                    color: 0x00ffff,
+                    metalness: 0.3,
+                    roughness: 0.2,
+                    emissive: 0x00ffff,
+                    emissiveIntensity: 1.0,
+                    transparent: true,
+                    opacity: 0.3
+                });
+
+                const cubeMaterial = new THREE.MeshStandardMaterial({
+                    color: 0x00ffff,
+                    emissive: 0x00ffff,
+                    emissiveIntensity: 5.0,
+                    transparent: true,
+                    opacity: 0.9
+                });
+
+                capsule.traverse((child) => {
+                    if (child.isMesh) {
+                        console.log("Mesh name:", child.name);
+                        if (child.name === 'Capsule') {
+                            child.material = mainMaterial;
+                        } else if (child.name === 'Cube') {
+                            child.material = cubeMaterial;
+                        } else if (child.name === 'glass') {
+                            child.material = middleMaterial;
+                        }
+                    }
+                });
+
+                // Add halo effect
+                const haloTexture = new THREE.CanvasTexture(generateHaloTexture());
+                const haloMaterial = new THREE.SpriteMaterial({
+                    map: haloTexture,
+                    color: 0x00ffff,
+                    transparent: true,
+                    opacity: 0.5
+                });
+                const halo = new THREE.Sprite(haloMaterial);
+                halo.scale.set(100, 100, 1);
+                halo.position.set(0, 0, 0); // Halo follows capsule position
+                capsuleScene.add(halo);
+
+                const cube = new THREE.Mesh(new THREE.BoxGeometry(5, 5, 5), cubeMaterial);
+                cube.position.set(0, 0, 0);
+                capsuleScene.add(cube);
+                console.log("Cube added to scene.");
+
+                capsuleScene.add(capsule);
+                console.log("Capsule added to scene with position:", capsule.position.x, capsule.position.y, capsule.position.z);
+
+                gsap.to(capsule.position, {
+                    y: 5,
+                    duration: 2,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut"
+                });
+                gsap.to(cube.position, {
+                    y: 5,
+                    duration: 2,
+                    repeat: -1,
+                    yoyo: true,
+                    ease: "sine.inOut"
+                });
+            },
+            (xhr) => {
+                console.log((xhr.loaded / xhr.total * 100) + '% loaded');
+            },
+            (error) => {
+                console.error('Failed to load FBX model:', error);
+            }
+        );
+
+        const ambientLight = new THREE.AmbientLight(0xffffff, 0.05);
+        capsuleScene.add(ambientLight);
+        const pointLight = new THREE.PointLight(0x00ffff, 5.0, 200);
+        pointLight.position.set(0, 0, 50);
+        capsuleScene.add(pointLight);
+        console.log("Lights added to capsule scene.");
+
+        starCamera.position.set(0, 0, 120); // Centered for stars
+        console.log("Star camera positioned at:", starCamera.position);
+        starCamera.lookAt(0, 0, 0);
+
+        capsuleCamera.position.set(0, 0, 120); // Centered for capsule in its container
+        console.log("Capsule camera positioned at:", capsuleCamera.position);
+        capsuleCamera.lookAt(0, 0, 0);
+
+        // Add mouse movement for stars only
+        let mouseX = 0, mouseY = 0;
+        $(document).on('mousemove', (e) => {
+            mouseX = (e.clientX / window.innerWidth) * 2 - 1;
+            mouseY = -(e.clientY / window.innerHeight) * 2 + 1;
+        });
+
+        function animate() {
+            requestAnimationFrame(animate);
+            stars.rotation.y += 0.001;
+            stars.rotation.x += mouseY * 0.005;
+            stars.rotation.y += mouseX * 0.005;
+            starRenderer.render(starScene, starCamera);
+            capsuleRenderer.render(capsuleScene, capsuleCamera);
+        }
+        animate();
+        console.log("Animation loop started.");
+
+        window.addEventListener('resize', () => {
+            // Update star renderer
+            starCamera.aspect = window.innerWidth / window.innerHeight;
+            starCamera.updateProjectionMatrix();
+            starRenderer.setSize(window.innerWidth, window.innerHeight);
+
+            // Update capsule renderer
+            const containerRect = capsuleContainer.getBoundingClientRect();
+            capsuleCamera.aspect = containerRect.width / containerRect.height;
+            capsuleCamera.updateProjectionMatrix();
+            capsuleRenderer.setSize(containerRect.width, containerRect.height);
+        });
+
+        // Function to generate halo texture
+        function generateHaloTexture() {
+            const size = 256;
+            const canvas = document.createElement('canvas');
+            canvas.width = size;
+            canvas.height = size;
+            const context = canvas.getContext('2d');
+            const gradient = context.createRadialGradient(size / 2, size / 2, 0, size / 2, size / 2, size / 2);
+            gradient.addColorStop(0, 'rgba(255, 255, 255, 1)');
+            gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+            context.fillStyle = gradient;
+            context.fillRect(0, 0, size, size);
+            return canvas;
+        }
+
+        // Text animation without blur
+        gsap.from(".cosmic-text span", {
+            opacity: 0,
+            scale: 0.5,
+            y: 20,
+            duration: 0.8,
+            stagger: 0.1,
+            ease: "elastic.out(1, 0.5)",
+            onComplete: () => {
+                gsap.to(".cosmic-text span", {
+                    duration: 0.5,
+                    ease: "power1.inOut"
+                });
+            }
+        });
+
+        gsap.from(".hero-section p", { opacity: 0, y: 50, duration: 1, delay: 0.7, ease: "power2.out" });
+        gsap.from(".hero-section .cosmic-button", { opacity: 0, scale: 0.8, duration: 1, delay: 0.9, repeat: -1, yoyo: true, ease: "sine.inOut" });
+
+        gsap.from(".navbar-brand", { opacity: 0, x: -50, duration: 1, delay: 0.3, ease: "power2.out" });
+        gsap.from(".nav-link", {
+            opacity: 0,
+            x: 30,
+            duration: 0.5,
+            stagger: 0.1,
+            delay: 0.5,
+            ease: "power2.out"
+        });
+        gsap.from(".navbar .cosmic-button", {
+            opacity: 0,
+            x: 30,
+            duration: 0.5,
+            delay: 0.9,
+            ease: "power2.out"
+        });
+    </script>
+}
