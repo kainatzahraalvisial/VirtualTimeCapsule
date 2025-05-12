@@ -1,0 +1,27 @@
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.log
+
+# User secrets
+secrets.json
+*.pubxml
+*.publishsettings
+
+# ASP.NET Core
+appsettings.Development.json
+wwwroot/lib/
+wwwroot/_framework/
+
+# Other
+*.cache
+*.bak
+*.nupkg
+*.tmp
+*.temp
+*.swp
