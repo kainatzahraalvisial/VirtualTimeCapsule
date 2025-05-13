@@ -1,7 +1,7 @@
 # Build results
 [Bb]in/
 [Oo]bj/
-
+time-capsule/.vs/
 # Visual Studio files
 .vs/
 *.user
