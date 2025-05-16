@@ -1,0 +1,132 @@
+﻿body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    font-weight: bold;
+}
+
+.signup-container {
+    display: flex;
+    height: 100vh;
+}
+
+.signup-image {
+    position: relative;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    color: #fff;
+    padding: 3rem;
+    text-align: center;
+    border-radius: 10px;
+}
+
+    .signup-image video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 0;
+    }
+
+    .signup-image h2 {
+        position: relative;
+        z-index: 2;
+        font-size: 2.8rem;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    .signup-image p {
+        position: relative;
+        z-index: 2;
+        font-size: 1.2rem;
+        max-width: 400px;
+        margin-top: 1rem;
+    }
+
+.signup-form {
+    flex: 1;
+    background-color: #fff;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+}
+
+    .signup-form h2.aurora-text {
+        font-size: 2.5rem;
+        font-weight: bold;
+        background: linear-gradient(90deg, #6f00ff, #ff0099, #00f0ff);
+        background-size: 200% auto;
+        color: transparent;
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        animation: aurora-glow 3s linear infinite;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+
+.aurora-input {
+    position: relative;
+    z-index: 1;
+    padding: 12px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #fff;
+    border: 3px solid transparent;
+    border-radius: 8px;
+    background-image: linear-gradient(#fff, #fff), linear-gradient(120deg, #ff0080, #7928ca, #00ffff);
+    background-origin: border-box;
+    background-clip: padding-box, border-box;
+    transition: all 0.3s ease;
+    width: 100%;
+}
+
+    .aurora-input:focus {
+        outline: none;
+        background-image: linear-gradient(#fff, #fff), linear-gradient(120deg, #00ffff, #ff00ff, #ffcc00);
+    }
+
+.aurora-button {
+    width: 60%;
+    padding: 12px;
+    background: linear-gradient(to right, #3EC7E0, #9B5CF2);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: 90px;
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+    .aurora-button:hover {
+        background-color: #f0f0f0;
+    }
+
+/* Glow animation (used in heading only) */
+@keyframes aurora-glow {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 200% 50%;
+    }
+}
+
+.text-danger {
+    color: red;
+    font-size: 0.9rem;
+}

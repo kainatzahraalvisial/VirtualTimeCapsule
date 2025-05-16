@@ -1,11 +1,10 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using time_capsule.Data;
-using Microsoft.AspNetCore.StaticFiles; // Add this for FileExtensionContentTypeProvider
+using Microsoft.AspNetCore.StaticFiles; 
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
@@ -17,7 +16,6 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseMigrationsEndPoint();
@@ -30,10 +28,9 @@ else
 
 app.UseHttpsRedirection();
 
-// Configure static files with custom MIME type for .fbx
 var provider = new FileExtensionContentTypeProvider();
-provider.Mappings[".fbx"] = "application/octet-stream"; // Add MIME type for .fbx files
-provider.Mappings[".glb"] = "model/gltf-binary"; // Add MIME type for .glb files
+provider.Mappings[".fbx"] = "application/octet-stream"; 
+provider.Mappings[".glb"] = "model/gltf-binary"; 
 
 app.UseStaticFiles(new StaticFileOptions
 {
