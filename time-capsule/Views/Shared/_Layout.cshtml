@@ -28,8 +28,8 @@
                 <a class="navbar-brand cosmic-brand" asp-controller="Home" asp-action="Index">VirtualTimeCapsule</a>
                 <div class="d-flex align-items-center">
                     <a class="nav-link cosmic-link" asp-controller="Home" asp-action="Index">Home</a>
-                    <a class="nav-link cosmic-link" asp-controller="About" asp-action="About">About</a>
-                    <a class="nav-link cosmic-link" asp-controller="Contact" asp-action="Contact">Contact</a>
+                    <a class="nav-link cosmic-link" asp-controller="About" asp-action="Index">About</a>
+                    <a class="nav-link cosmic-link" asp-controller="Contact" asp-action="Index">Contact</a>
                     @{
                         bool isLoggedIn = ViewData["IsLoggedIn"] as bool? ?? false;
                     }
