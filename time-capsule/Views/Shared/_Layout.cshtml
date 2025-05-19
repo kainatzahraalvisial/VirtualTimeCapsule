@@ -50,15 +50,11 @@
     <div class="d-flex flex-grow-1">
         @if (isLoggedIn && string.Equals(ViewData["Title"] as string, "Dashboard", StringComparison.Ordinal))
         {
-            <nav class="sidebar">
+            <button class="sidebar-toggle btn btn-dark position-fixed" id="sidebarToggle">
+                <i class="bi bi-list"></i>
+            </button>
+            <nav class="sidebar collapsed" id="sidebar">
                 <div class="sidebar-sticky">
-                    <div class="theme-toggle mb-3 p-3">
-                        <label class="switch">
-                            <input type="checkbox" id="themeToggle">
-                            <span class="slider round"></span>
-                        </label>
-                        <span class="ms-2 theme-label">Dark Mode</span>
-                    </div>
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a class="nav-link cosmic-link" href="#" data-section="Welcome">Dashboard</a>
@@ -76,14 +72,33 @@
                             <a class="nav-link cosmic-link" href="#" data-section="Profile">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link cosmic-link" asp-controller="Account" asp-action="Logout">Logout</a>
+                            <a class="nav-link cosmic-link" href="#" data-section="Logout">Logout</a>
                         </li>
                     </ul>
+                    <div class="theme-toggle p-3">
+                        <label class="switch">
+                            <input type="checkbox" id="themeToggle">
+                            <span class="slider round"></span>
+                        </label>
+                        <span class="ms-2 theme-label">Dark Mode</span>
+                    </div>
                 </div>
             </nav>
         }
         <main role="main" class="flex-grow-1">
-            @RenderBody()
+            @if (isLoggedIn && string.Equals(ViewData["Title"] as string, "Dashboard", StringComparison.Ordinal))
+            {
+                <div class="dashboard-content p-4">
+                    <div id="particles-js" class="position-fixed top-0 start-0 w-100 h-100"></div>
+                    <div class="main-content-area" id="mainContentArea">
+                        @RenderBody()
+                    </div>
+                </div>
+            }
+            else
+            {
+                @RenderBody()
+            }
         </main>
     </div>
     <footer class="footer-section text-center">
@@ -98,5 +113,84 @@
         </div>
     </footer>
     @RenderSection("Scripts", required: false)
+    <script>
+        $(document).ready(function () {
+            console.log("Document ready, binding sidebar toggle");
+            $("#sidebarToggle").on("click", function () {
+                console.log("Sidebar toggle clicked");
+                $("#sidebar").toggleClass("collapsed");
+                $(".dashboard-content").toggleClass("expanded");
+            });
+
+            const sidebarLinks = document.querySelectorAll('.sidebar .nav-link');
+            const mainContent = document.querySelector('#mainContentArea');
+            const themeToggle = document.getElementById('themeToggle');
+            const themeLabel = document.querySelector('.theme-label');
+            const body = document.body;
+
+            sidebarLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const section = link.getAttribute('data-section');
+                    if (section === "Logout") {
+                        window.location.href = "/Account/Logout";
+                        return;
+                    }
+                    let content = '';
+                    let hasFrostedBox = true;
+                    switch (section) {
+                        case 'Welcome':
+                            content = `<h2 class="mb-4 cosmic-text">Welcome, @ViewData["UserFirstName"]!</h2><p style="color: #ccc;">This is your cosmic dashboard. Click a sidebar option to get started.</p>`;
+                            hasFrostedBox = false;
+                            break;
+                        case 'MyCapsules':
+                            content = `<h2>My Capsules</h2><p>This will show a list of your time capsules once implemented.</p>` +
+                                      `@for (int i = 1; i <= 20; i++)
+        {
+            <p>Sample capsule item @i</p>
+        }`;
+                            break;
+                        case 'CreateCapsule':
+                            content = `<h2>Create Capsule</h2><p>Placeholder: Form to create a new capsule with title, content, and unlock date.</p>`;
+                            break;
+                        case 'Notifications':
+                            content = `<h2>Notifications</h2><p>Placeholder: List of notifications, e.g., "Capsule ready to open", "Cannot open yet"</p>`;
+                            break;
+                        case 'Profile':
+                            content = `<h2>Profile</h2><p>Placeholder: Profile picture upload and user details.</p>`;
+                            break;
+                    }
+                    if (mainContent) {
+                        mainContent.innerHTML = content;
+                        if (hasFrostedBox) {
+                            mainContent.classList.remove('no-frosted-box');
+                        } else {
+                            mainContent.classList.add('no-frosted-box');
+                        }
+                    }
+                    sidebarLinks.forEach(l => l.classList.remove('active'));
+                    link.classList.add('active');
+                });
+            });
+
+            if (themeToggle) {
+                themeToggle.addEventListener('change', () => {
+                    if (themeToggle.checked) {
+                        body.classList.remove('light-mode');
+                        themeLabel.textContent = 'Dark Mode';
+                    } else {
+                        body.classList.add('light-mode');
+                        themeLabel.textContent = 'Light Mode';
+                    }
+                });
+            }
+
+            const initialSection = '@ViewData["DashboardSection"]';
+            const initialLink = document.querySelector(`.nav-link[data-section="${initialSection}"]`);
+            if (initialLink && mainContent) {
+                initialLink.click();
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,20 @@
+﻿@model dynamic
+
+@{
+    ViewData["Title"] = "Dashboard";
+    ViewData["DashboardSection"] = "MyCapsules";
+    ViewData["IsLoggedIn"] = true;
+    ViewData["UserFirstName"] = "Zahra";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>My Capsules</h2>
+<p>This will show a list of your time capsules once implemented.</p>
+@for (int i = 1; i <= 20; i++)
+{
+    <p>Sample capsule item @i</p>
+}
+
+@section Scripts {
+    <script src="~/js/particles-config.js"></script>
+}

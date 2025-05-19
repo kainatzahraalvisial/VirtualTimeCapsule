@@ -40,5 +40,13 @@ namespace time_capsule.Controllers
             }
             return View(model);
         }
+
+        [HttpGet]
+        public IActionResult Logout()
+        {
+            // For testing: Simulate logout by redirecting to homepage
+            // Later, we'll clear the JWT token or session
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

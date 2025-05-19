@@ -1,5 +1,9 @@
 body {
-    background: #000; /* Solid black to remove gradient */
+    background: #000;
+    overflow-y: auto;
+    height: 100vh;
+    position: relative;
+    z-index: 0;
 }
 
 .navbar {
@@ -8,6 +12,7 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.1);
     transition: background 0.3s;
     height: 60px;
+    z-index: 1003; /* Above sidebar */
 }
 
     .navbar.scrolled {
@@ -52,11 +57,11 @@ body {
     }
 
     .cosmic-link.active {
-        color: #00ffff; /* Active state color */
+        color: #00ffff;
     }
 
         .cosmic-link.active::after {
-            width: 100%; /* Full underline for active link */
+            width: 100%;
         }
 
 .cosmic-button {
@@ -130,7 +135,7 @@ body {
     background: rgba(0, 0, 0, 0.8);
     padding: 20px 0;
     color: #fff;
-    z-index: 1000;
+    z-index: 1001; /* Below sidebar */
 }
 
 .social-icon {
@@ -143,6 +148,114 @@ body {
         color: #ff00ff;
     }
 
+/* Dashboard content */
+.dashboard-content {
+    margin-left: 0;
+    min-height: calc(100vh - 140px); /* Adjusted for navbar (60px) and footer (80px) */
+    position: relative;
+    overflow-y: auto;
+    transition: margin-left 0.3s ease;
+    z-index: 2; /* Above particles */
+    padding: 20px; /* Add padding to maintain distance from sides */
+}
+
+    .dashboard-content.expanded {
+        margin-left: 250px;
+    }
+
+#particles-js {
+    z-index: -1; /* Behind everything */
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.main-content-area {
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    min-height: 400px;
+    max-width: 800px;
+    margin: 100px auto 100px; /* Maintain distance from top and bottom */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    z-index: 3;
+    transition: background 0.3s, color 0.3s;
+    overflow-y: auto;
+    max-height: calc(100vh - 240px); /* Limit height for scrollability */
+}
+
+    .main-content-area.no-frosted-box {
+        background: transparent;
+        backdrop-filter: none;
+        border: none;
+    }
+
+.light-mode .main-content-area {
+    background: rgba(255, 255, 255, 0.2);
+    color: #000;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+    .light-mode .main-content-area.no-frosted-box {
+        background: transparent;
+        color: #000;
+        border: none;
+    }
+
+.cosmic-text {
+    font-size: 3rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* Ensure gradient works */
+    z-index: 4;
+}
+
+.light-mode .cosmic-text {
+    background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+    -webkit-text-fill-color: transparent; /* Ensure gradient in light mode */
+    color: #000; /* Fallback black text */
+}
+
+/* Sidebar toggle button */
+.sidebar-toggle {
+    top: 70px;
+    left: 10px;
+    z-index: 1004; /* Above navbar and sidebar */
+    background: transparent;
+    border: none;
+    padding: 5px;
+    position: fixed; /* Ensure it stays in place */
+}
+
+    .sidebar-toggle i {
+        color: #fff;
+        font-size: 1.5rem;
+        transition: color 0.3s;
+    }
+
+.light-mode .sidebar-toggle i {
+    color: #000; /* Visible in light mode */
+}
+
+.sidebar-toggle:hover i {
+    color: #00ffff;
+}
+
+.light-mode .sidebar-toggle:hover i {
+    color: #00ffff;
+}
+
 .sidebar {
     width: 250px;
     background: rgba(255, 255, 255, 0.1);
@@ -151,24 +264,48 @@ body {
     padding-top: 80px;
     height: 100vh;
     position: fixed;
-    z-index: 2;
-    transition: background 0.3s, color 0.3s;
+    z-index: 1002; /* Below navbar, above footer */
+    transition: transform 0.3s ease;
+    transform: translateX(-100%);
 }
 
+    .sidebar.collapsed {
+        transform: translateX(-100%);
+    }
+
+    .sidebar:not(.collapsed) {
+        transform: translateX(0);
+    }
+
+.dashboard-content.expanded {
+    margin-left: 0;
+}
+
+.dashboard-content:not(.expanded) {
+    margin-left: 250px;
+}
+
+/* Keep sidebar same as dark mode even in light mode */
 .light-mode .sidebar {
-    background: rgba(255, 255, 255, 0.7);
-    border-right: 1px solid rgba(0, 0, 0, 0.2);
+    background: rgba(255, 255, 255, 0.1); /* Same as dark mode */
+    border-right: 1px solid rgba(255, 255, 255, 0.2); /* Same as dark mode */
 }
 
 .sidebar-sticky {
     position: sticky;
     top: 80px;
+    height: calc(100vh - 80px);
+    padding-top: 20px;
+    overflow-y: auto;
 }
 
 .sidebar .nav-link {
     color: #ccc;
     margin: 10px 0;
     padding: 10px 20px;
+    z-index: 1003; /* Ensure links are clickable */
+    position: relative;
+    pointer-events: auto;
 }
 
     .sidebar .nav-link:hover,
@@ -177,7 +314,7 @@ body {
     }
 
 .light-mode .sidebar .nav-link {
-    color: #333;
+    color: #000; /* Black text in light mode */
 }
 
     .light-mode .sidebar .nav-link:hover,
@@ -186,11 +323,21 @@ body {
     }
 
 /* Theme Toggle Switch */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 25px;
+    margin: 10px;
+}
+
 .switch {
     position: relative;
     display: inline-block;
-    width: 40px;
-    height: 20px;
+    width: 50px;
+    height: 24px;
 }
 
     .switch input {
@@ -208,26 +355,36 @@ body {
     bottom: 0;
     background-color: #ccc;
     transition: 0.4s;
+    border-radius: 24px;
 }
 
     .slider:before {
         position: absolute;
         content: "";
-        height: 16px;
-        width: 16px;
-        left: 2px;
-        bottom: 2px;
+        height: 18px;
+        width: 18px;
+        left: 3px;
+        bottom: 3px;
         background-color: white;
         transition: 0.4s;
+        border-radius: 50%;
     }
 
 input:checked + .slider {
-    background-color: #00ffff;
+    background: linear-gradient(90deg, #ff00ff, #00ffff);
 }
 
     input:checked + .slider:before {
-        transform: translateX(20px);
+        transform: translateX(26px);
     }
+
+.theme-label {
+    color: #ccc;
+}
+
+.light-mode .theme-label {
+    color: #000; /* Black text in light mode */
+}
 
 .slider.round {
     border-radius: 20px;
@@ -237,10 +394,6 @@ input:checked + .slider {
         border-radius: 50%;
     }
 
-.theme-label {
-    color: #ccc;
-}
-
-.light-mode .theme-label {
-    color: #333;
+.light-mode #particles-js {
+    background: #ffffff; /* Match sidebar background in light mode */
 }
