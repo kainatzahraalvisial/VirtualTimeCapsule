@@ -1,17 +1,34 @@
-﻿@model dynamic
+﻿@model List<time_capsule.Models.Notification>
 
 @{
     ViewData["Title"] = "Dashboard";
+    ViewData["DashboardSection"] = "Notifications";
+    ViewData["IsLoggedIn"] = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <main class="dashboard-content p-4">
-    <div id="particles-js" class="position-absolute top-0 start-0 w-100 h-100"></div>
+    <div id="particles-js" class="position-fixed top-0 start-0 w-100 h-100"></div>
     <div class="main-content-area">
-        <h2 class="mb-4">Notifications</h2>
-        <p>This will show a list of your time capsules once implemented.</p>
+        <h2 class="mb-4 cosmic-text">Notifications</h2>
+        @if (Model.Any())
+        {
+            <ul class="list-group">
+                @foreach (var notification in Model)
+                {
+                    <li class="list-group-item @(notification.IsRead ? "" : "list-group-item-info")">
+                        @notification.Message
+                        <small class="text-muted d-block">@notification.CreatedDate.ToString("MMM dd, yyyy HH:mm")</small>
+                    </li>
+                }
+            </ul>
+        }
+        else
+        {
+            <p>No notifications at this time.</p>
+        }
     </div>
 </main>
 
 @section Scripts {
-    <script src="~/js/particles-config.js"></script>
 }

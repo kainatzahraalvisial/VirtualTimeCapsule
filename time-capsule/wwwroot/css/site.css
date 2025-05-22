@@ -222,9 +222,17 @@ body {
 }
 
 .light-mode .cosmic-text {
-    background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
     -webkit-text-fill-color: transparent; /* Ensure gradient in light mode */
     color: #000; /* Fallback black text */
+}
+
+/* Text below cosmic-text */
+.main-content-area p {
+    color: #ccc; /* Default for dark mode */
+}
+
+.light-mode .main-content-area p {
+    color: #000; /* Black in light mode */
 }
 
 /* Sidebar toggle button */

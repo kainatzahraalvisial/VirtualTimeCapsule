@@ -48,7 +48,7 @@
         </nav>
     </header>
     <div class="d-flex flex-grow-1">
-        @if (isLoggedIn && string.Equals(ViewData["Title"] as string, "Dashboard", StringComparison.Ordinal))
+        @if (isLoggedIn && ViewData["Title"]?.ToString() == "Dashboard")
         {
             <button class="sidebar-toggle btn btn-dark position-fixed" id="sidebarToggle">
                 <i class="bi bi-list"></i>
@@ -57,22 +57,33 @@
                 <div class="sidebar-sticky">
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link cosmic-link" href="#" data-section="Welcome">Dashboard</a>
+                            <a class="nav-link cosmic-link @(ViewData["DashboardSection"]?.ToString() == "Welcome" ? "active" : "")" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link cosmic-link" href="#" data-section="MyCapsules">My Capsules</a>
+                            <a class="nav-link cosmic-link @(ViewData["DashboardSection"]?.ToString() == "MyCapsules" ? "active" : "")" asp-controller="Dashboard" asp-action="MyCapsules">My Capsules</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link cosmic-link" href="#" data-section="CreateCapsule">Create Capsule</a>
+                            <a class="nav-link cosmic-link @(ViewData["DashboardSection"]?.ToString() == "CreateCapsules" ? "active" : "")" asp-controller="Dashboard" asp-action="Create">Create Capsule</a>
+                        </li>
+                        <li class="nav-item position-relative">
+                            <a class="nav-link cosmic-link @(ViewData["DashboardSection"]?.ToString() == "Notifications" ? "active" : "")" asp-controller="Dashboard" asp-action="Notifications">
+                                Notifications
+                                @{
+                                    int? unreadNotifications = ViewData["UnreadNotifications"] as int?;
+                                    if (unreadNotifications.HasValue && unreadNotifications.Value > 0)
+                                    {
+                                        <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+                                            <span class="visually-hidden">New notifications</span>
+                                        </span>
+                                    }
+                                }
+                            </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link cosmic-link" href="#" data-section="Notifications">Notifications</a>
+                            <a class="nav-link cosmic-link @(ViewData["DashboardSection"]?.ToString() == "Profile" ? "active" : "")" asp-controller="Dashboard" asp-action="Profile">Profile</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link cosmic-link" href="#" data-section="Profile">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link cosmic-link" href="#" data-section="Logout">Logout</a>
+                            <a class="nav-link cosmic-link" asp-controller="Account" asp-action="Logout">Logout</a>
                         </li>
                     </ul>
                     <div class="theme-toggle p-3">
@@ -86,11 +97,14 @@
             </nav>
         }
         <main role="main" class="flex-grow-1">
-            @if (isLoggedIn && string.Equals(ViewData["Title"] as string, "Dashboard", StringComparison.Ordinal))
+            @if (isLoggedIn && ViewData["Title"]?.ToString() == "Dashboard")
             {
                 <div class="dashboard-content p-4">
                     <div id="particles-js" class="position-fixed top-0 start-0 w-100 h-100"></div>
-                    <div class="main-content-area" id="mainContentArea">
+                    @{
+                        bool noFrostedBox = ViewData["NoFrostedBox"] as bool? ?? false;
+                    }
+                    <div class="main-content-area @(noFrostedBox ? "no-frosted-box" : "")" id="mainContentArea">
                         @RenderBody()
                     </div>
                 </div>
@@ -122,74 +136,40 @@
                 $(".dashboard-content").toggleClass("expanded");
             });
 
-            const sidebarLinks = document.querySelectorAll('.sidebar .nav-link');
-            const mainContent = document.querySelector('#mainContentArea');
             const themeToggle = document.getElementById('themeToggle');
             const themeLabel = document.querySelector('.theme-label');
             const body = document.body;
 
-            sidebarLinks.forEach(link => {
-                link.addEventListener('click', (e) => {
-                    e.preventDefault();
-                    const section = link.getAttribute('data-section');
-                    if (section === "Logout") {
-                        window.location.href = "/Account/Logout";
-                        return;
-                    }
-                    let content = '';
-                    let hasFrostedBox = true;
-                    switch (section) {
-                        case 'Welcome':
-                            content = `<h2 class="mb-4 cosmic-text">Welcome, @ViewData["UserFirstName"]!</h2><p style="color: #ccc;">This is your cosmic dashboard. Click a sidebar option to get started.</p>`;
-                            hasFrostedBox = false;
-                            break;
-                        case 'MyCapsules':
-                            content = `<h2>My Capsules</h2><p>This will show a list of your time capsules once implemented.</p>` +
-                                      `@for (int i = 1; i <= 20; i++)
-        {
-            <p>Sample capsule item @i</p>
-        }`;
-                            break;
-                        case 'CreateCapsule':
-                            content = `<h2>Create Capsule</h2><p>Placeholder: Form to create a new capsule with title, content, and unlock date.</p>`;
-                            break;
-                        case 'Notifications':
-                            content = `<h2>Notifications</h2><p>Placeholder: List of notifications, e.g., "Capsule ready to open", "Cannot open yet"</p>`;
-                            break;
-                        case 'Profile':
-                            content = `<h2>Profile</h2><p>Placeholder: Profile picture upload and user details.</p>`;
-                            break;
-                    }
-                    if (mainContent) {
-                        mainContent.innerHTML = content;
-                        if (hasFrostedBox) {
-                            mainContent.classList.remove('no-frosted-box');
-                        } else {
-                            mainContent.classList.add('no-frosted-box');
-                        }
-                    }
-                    sidebarLinks.forEach(l => l.classList.remove('active'));
-                    link.classList.add('active');
-                });
+            // Initialize theme toggle
+            function setTheme(isDark) {
+                if (isDark) {
+                    body.classList.remove('light-mode');
+                    themeLabel.textContent = 'Dark Mode';
+                    themeToggle.checked = true;
+                } else {
+                    body.classList.add('light-mode');
+                    themeLabel.textContent = 'Light Mode';
+                    themeToggle.checked = false;
+                }
+            }
+
+            // Check localStorage or default to dark mode
+            if (localStorage.getItem('theme') === 'light') {
+                setTheme(false);
+            } else {
+                setTheme(true);
+                localStorage.setItem('theme', 'dark');
+            }
+
+            themeToggle.addEventListener('change', () => {
+                if (themeToggle.checked) {
+                    setTheme(true);
+                    localStorage.setItem('theme', 'dark');
+                } else {
+                    setTheme(false);
+                    localStorage.setItem('theme', 'light');
+                }
             });
-
-            if (themeToggle) {
-                themeToggle.addEventListener('change', () => {
-                    if (themeToggle.checked) {
-                        body.classList.remove('light-mode');
-                        themeLabel.textContent = 'Dark Mode';
-                    } else {
-                        body.classList.add('light-mode');
-                        themeLabel.textContent = 'Light Mode';
-                    }
-                });
-            }
-
-            const initialSection = '@ViewData["DashboardSection"]';
-            const initialLink = document.querySelector(`.nav-link[data-section="${initialSection}"]`);
-            if (initialLink && mainContent) {
-                initialLink.click();
-            }
         });
     </script>
 </body>

@@ -1,17 +1,30 @@
-﻿@model dynamic
+﻿@model time_capsule.Models.User
 
 @{
     ViewData["Title"] = "Dashboard";
+    ViewData["DashboardSection"] = "Profile";
+    ViewData["IsLoggedIn"] = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <main class="dashboard-content p-4">
-    <div id="particles-js" class="position-absolute top-0 start-0 w-100 h-100"></div>
+    <div id="particles-js" class="position-fixed top-0 start-0 w-100 h-100"></div>
     <div class="main-content-area">
-        <h2 class="mb-4">My Profile</h2>
-        <p>This will show a list of your time capsules once implemented.</p>
+        <h2 class="mb-4 cosmic-text">Profile</h2>
+        @if (Model != null)
+        {
+            <div class="card bg-dark text-white mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">User Details</h5>
+                    <p class="card-text"><strong>Name:</strong> @Model.FirstName @Model.LastName</p>
+                    <p class="card-text"><strong>Email:</strong> @Model.Email</p>
+                </div>
+            </div>
+            <p>Placeholder: Add profile picture upload and user details editing in the future.</p>
+        }
+        else
+        {
+            <p class="text-danger">User not found.</p>
+        }
     </div>
 </main>
-
-@section Scripts {
-    <script src="~/js/particles-config.js"></script>
-}

@@ -1,0 +1,25 @@
+﻿@model time_capsule.Models.Capsule
+
+@{
+    ViewData["Title"] = "Dashboard";
+    ViewData["DashboardSection"] = "MyCapsules";
+    ViewData["IsLoggedIn"] = true;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<main class="dashboard-content p-4">
+    <div id="particles-js" class="position-fixed top-0 start-0 w-100 h-100"></div>
+    <div class="main-content-area">
+        <h2 class="mb-4 cosmic-text">@Model.Title</h2>
+        @if (!string.IsNullOrEmpty(Model.ImagePath))
+        {
+            <img src="@Model.ImagePath" class="img-fluid mb-3" alt="@Model.Title" style="max-height: 300px;" />
+        }
+        <p>@Model.Content</p>
+        <p><small>Created on: @Model.CreatedDate.ToString("MMM dd, yyyy HH:mm")</small></p>
+        <a asp-action="Index" class="btn btn-secondary cosmic-button">Back to My Capsules</a>
+    </div>
+</main>
+
+@section Scripts {
+}

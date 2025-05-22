@@ -1,10 +1,12 @@
 ﻿@model time_capsule.Models.SignupModel
 @{
     ViewData["Title"] = "Signup";
+    ViewData["IsLoggedIn"] = false;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<link rel="stylesheet" href="~/css/signup.css" />
-<script src="~/js/validate.js"></script>
+<link rel="stylesheet" href="~/css/signup.css" asp-append-version="true" />
+<script src="~/js/validate.js" asp-append-version="true"></script>
 
 <div class="signup-container">
     <div class="signup-image">
@@ -19,6 +21,7 @@
     <div class="signup-form">
         <form asp-action="Signup" method="post" onsubmit="return validateSignupForm()">
             <h2 class="aurora-text">Sign Up</h2>
+            <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
             <input asp-for="FirstName" class="aurora-input" placeholder="Enter your first name" />
             <span class="text-danger" asp-validation-for="FirstName"></span>
