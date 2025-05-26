@@ -30,10 +30,7 @@
                     <a class="nav-link cosmic-link" asp-controller="Home" asp-action="Index">Home</a>
                     <a class="nav-link cosmic-link" asp-controller="About" asp-action="Index">About</a>
                     <a class="nav-link cosmic-link" asp-controller="Contact" asp-action="Index">Contact</a>
-                    @{
-                        bool isLoggedIn = ViewData["IsLoggedIn"] as bool? ?? false;
-                    }
-                    @if (isLoggedIn)
+                    @if (User?.Identity?.IsAuthenticated == true)
                     {
                         <a class="nav-link cosmic-link" asp-controller="Dashboard" asp-action="Index">Dashboard</a>
                         <a class="nav-link cosmic-link" asp-controller="Account" asp-action="Logout">Logout</a>
@@ -48,7 +45,7 @@
         </nav>
     </header>
     <div class="d-flex flex-grow-1">
-        @if (isLoggedIn && ViewData["Title"]?.ToString() == "Dashboard")
+        @if (User?.Identity?.IsAuthenticated == true && ViewData["Title"]?.ToString() == "Dashboard")
         {
             <button class="sidebar-toggle btn btn-dark position-fixed" id="sidebarToggle">
                 <i class="bi bi-list"></i>
@@ -97,7 +94,7 @@
             </nav>
         }
         <main role="main" class="flex-grow-1">
-            @if (isLoggedIn && ViewData["Title"]?.ToString() == "Dashboard")
+            @if (User?.Identity?.IsAuthenticated == true && ViewData["Title"]?.ToString() == "Dashboard")
             {
                 <div class="dashboard-content p-4">
                     <div id="particles-js" class="position-fixed top-0 start-0 w-100 h-100"></div>
@@ -140,7 +137,6 @@
             const themeLabel = document.querySelector('.theme-label');
             const body = document.body;
 
-            // Initialize theme toggle
             function setTheme(isDark) {
                 if (isDark) {
                     body.classList.remove('light-mode');
@@ -153,7 +149,6 @@
                 }
             }
 
-            // Check localStorage or default to dark mode
             if (localStorage.getItem('theme') === 'light') {
                 setTheme(false);
             } else {

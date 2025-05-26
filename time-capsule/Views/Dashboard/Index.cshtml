@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "Dashboard";
     ViewData["DashboardSection"] = "Welcome";
-    ViewData["IsLoggedIn"] = true; // Set by DashboardController with JWT check
+    ViewData["IsLoggedIn"] = true;
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -10,7 +10,7 @@
 
 @section Scripts {
     <script>
-        console.log('Initializing Particles.js');
+        console.log('Initializing Particles.js for Index page');
         particlesJS("particles-js", {
             particles: {
                 number: { value: 100, density: { enable: true, value_area: 800 } },

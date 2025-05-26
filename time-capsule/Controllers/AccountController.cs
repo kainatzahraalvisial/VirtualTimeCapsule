@@ -30,34 +30,61 @@ namespace time_capsule.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Signup(SignupModel model)
         {
-            ViewData["Title"] = "Signup";
-            ViewData["IsLoggedIn"] = false;
-
-            if (ModelState.IsValid)
+            try
             {
-                if (_context.Users.Any(u => u.Email == model.Email))
+                ViewData["Title"] = "Signup";
+                ViewData["IsLoggedIn"] = false;
+
+                Console.WriteLine($"ModelState.IsValid: {ModelState.IsValid}");
+                if (ModelState.IsValid)
                 {
-                    ModelState.AddModelError("Email", "Email already exists.");
-                    return View(model);
+                    var existingUser = _context.User.Any(u => u.Email == model.Email);
+                    Console.WriteLine($"Email exists: {existingUser}, Email: {model.Email}");
+                    if (existingUser)
+                    {
+                        ModelState.AddModelError("Email", "Email already exists.");
+                        return View(model);
+                    }
+
+                    string passwordHash = BCrypt.Net.BCrypt.HashPassword(model.Password);
+                    var user = new User
+                    {
+                        FirstName = model.FirstName ?? string.Empty,
+                        LastName = model.LastName ?? string.Empty,
+                        Email = model.Email ?? string.Empty,
+                        PasswordHash = passwordHash
+                    };
+
+                    Console.WriteLine("Adding user to context...");
+                    _context.User.Add(user);
+                    _context.SaveChanges();
+                    Console.WriteLine($"User added. User ID: {user.Id}");
+
+                    var token = GenerateJwtToken(user);
+                    Console.WriteLine($"JWT Token generated: {token}");
+                    Response.Cookies.Append("JwtToken", token, new CookieOptions
+                    {
+                        HttpOnly = true,
+                        Secure = true,
+                        SameSite = SameSiteMode.Strict,
+                        Expires = DateTime.UtcNow.AddDays(1)
+                    });
+
+                    ViewData["IsLoggedIn"] = true;
+                    Console.WriteLine("Redirecting to Dashboard/Index...");
+                    return RedirectToAction("Index", "Dashboard");
                 }
 
-                string passwordHash = BCrypt.Net.BCrypt.HashPassword(model.Password);
-                var user = new User
-                {
-                    FirstName = model.FirstName ?? string.Empty,
-                    LastName = model.LastName ?? string.Empty,
-                    Email = model.Email ?? string.Empty,
-                    PasswordHash = passwordHash
-                };
-
-                _context.Users.Add(user);
-                _context.SaveChanges();
-
-                return RedirectToAction("Login");
+                Console.WriteLine("ModelState invalid. Returning signup view.");
+                return View(model);
             }
-            return View(model);
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Signup error: {ex.Message}\nStackTrace: {ex.StackTrace}");
+                ModelState.AddModelError("", "An error occurred during signup. Please try again.");
+                return View(model);
+            }
         }
-
         [HttpGet]
         public IActionResult Login()
         {
@@ -75,7 +102,7 @@ namespace time_capsule.Controllers
 
             if (ModelState.IsValid)
             {
-                var user = _context.Users.FirstOrDefault(u => u.Email == model.Email);
+                var user = _context.User.FirstOrDefault(u => u.Email == model.Email);
                 if (user == null || !BCrypt.Net.BCrypt.Verify(model.Password, user.PasswordHash))
                 {
                     ModelState.AddModelError("", "Invalid email or password.");
@@ -91,8 +118,10 @@ namespace time_capsule.Controllers
                     Expires = DateTime.UtcNow.AddDays(1)
                 });
 
+                ViewData["IsLoggedIn"] = true;
                 return RedirectToAction("Index", "Dashboard");
             }
+
             return View(model);
         }
 
@@ -102,7 +131,7 @@ namespace time_capsule.Controllers
             ViewData["Title"] = "Logout";
             ViewData["IsLoggedIn"] = false;
             Response.Cookies.Delete("JwtToken");
-            return RedirectToAction("Index", "Home"); 
+            return RedirectToAction("Index", "Home");
         }
 
         private string GenerateJwtToken(User user)
@@ -113,7 +142,7 @@ namespace time_capsule.Controllers
                 new Claim(ClaimTypes.Name, user.FirstName ?? string.Empty)
             };
 
-            var key = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("DC7385A854722BC4BCBC3B8D38F8B")); 
+            var key = new SymmetricSecurityKey(Encoding.ASCII.GetBytes("DC7385A854722BC4BCBC3B8D38F8B1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ"));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
             var tokenDescriptor = new SecurityTokenDescriptor
             {

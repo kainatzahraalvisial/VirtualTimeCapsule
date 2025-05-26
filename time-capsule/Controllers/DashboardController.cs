@@ -6,6 +6,7 @@ using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Http;
 using System.IO;
+using Models;
 
 namespace time_capsule.Controllers
 {
@@ -24,15 +25,21 @@ namespace time_capsule.Controllers
         // Welcome Page (Index)
         public IActionResult Index()
         {
-            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
+            var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+            {
+                Console.WriteLine("User not authenticated or user ID invalid. Redirecting to login.");
+                return RedirectToAction("Login", "Account");
+            }
+
             ViewData["UserFirstName"] = User.FindFirst(ClaimTypes.Name)?.Value ?? "User";
             ViewData["NoFrostedBox"] = true; // Disable frosted glass for welcome page
             ViewData["DashboardSection"] = "Welcome"; // Match _Layout.cshtml
             GenerateNotifications(userId);
             SetUnreadNotifications(userId);
+            Console.WriteLine($"Rendering Index for User ID: {userId}");
             return View();
         }
-
         // My Capsules (Index with capsules list)
         [HttpGet]
         public IActionResult MyCapsules()
@@ -55,14 +62,28 @@ namespace time_capsule.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier)?.Value ?? "0");
-            ViewData["UserFirstName"] = User.FindFirst(ClaimTypes.Name)?.Value ?? "User";
-            ViewData["NoFrostedBox"] = false;
-            ViewData["DashboardSection"] = "CreateCapsules";
-            SetUnreadNotifications(userId);
-            return View();
-        }
+            try
+            {
+                var userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+                if (string.IsNullOrEmpty(userIdClaim) || !int.TryParse(userIdClaim, out int userId))
+                {
+                    Console.WriteLine("User not authenticated or user ID invalid. Redirecting to login.");
+                    return RedirectToAction("Login", "Account");
+                }
 
+                ViewData["UserFirstName"] = User.FindFirst(ClaimTypes.Name)?.Value ?? "User";
+                ViewData["NoFrostedBox"] = false;
+                ViewData["DashboardSection"] = "CreateCapsules";
+                SetUnreadNotifications(userId);
+                Console.WriteLine("Rendering CreateCapsule.cshtml...");
+                return View("CreateCapsule"); // Explicitly specify the view name
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Create GET error: {ex.Message}\nStackTrace: {ex.StackTrace}");
+                return RedirectToAction("Index", "Dashboard");
+            }
+        }
         // Create Capsule (POST)
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -77,7 +98,7 @@ namespace time_capsule.Controllers
             {
                 ViewData["ErrorMessage"] = "Please fill all fields correctly. Open date must be in the future.";
                 SetUnreadNotifications(userId);
-                return View();
+                return View("CreateCapsule"); // Use the correct view name
             }
 
             var capsule = new Capsule
@@ -89,7 +110,6 @@ namespace time_capsule.Controllers
                 UserId = userId
             };
 
-            // Handle image upload
             if (image != null && image.Length > 0)
             {
                 var uploadsFolder = Path.Combine(_environment.WebRootPath, "uploads");
@@ -112,7 +132,6 @@ namespace time_capsule.Controllers
 
             return RedirectToAction("MyCapsules");
         }
-
         // View Capsule
         public IActionResult ViewCapsule(int id)
         {
@@ -203,7 +222,7 @@ namespace time_capsule.Controllers
             ViewData["NoFrostedBox"] = false;
             ViewData["DashboardSection"] = "Profile";
 
-            var user = _context.Users.FirstOrDefault(u => u.Id == userId);
+            var user = _context.User.FirstOrDefault(u => u.Id == userId);
             if (user == null)
             {
                 return RedirectToAction("Logout", "Account"); // Redirect to logout if user not found
@@ -235,7 +254,7 @@ namespace time_capsule.Controllers
                             .FirstOrDefault(n => n.CapsuleId == capsule.Id && n.Message.Contains("can be opened in 2 days"));
                         if (existingNotification == null)
                         {
-                            var notification = new Notification
+                            var notification = new Notifications
                             {
                                 UserId = userId,
                                 CapsuleId = capsule.Id,
@@ -254,7 +273,7 @@ namespace time_capsule.Controllers
                             .FirstOrDefault(n => n.CapsuleId == capsule.Id && n.Message.Contains("is ready to open"));
                         if (existingNotification == null)
                         {
-                            var notification = new Notification
+                            var notification = new Notifications
                             {
                                 UserId = userId,
                                 CapsuleId = capsule.Id,
@@ -275,12 +294,15 @@ namespace time_capsule.Controllers
         {
             try
             {
-                ViewData["UnreadNotifications"] = _context.Notifications
+                var count = _context.Notifications
                     .Count(n => n.UserId == userId && !n.IsRead);
+                ViewData["UnreadNotifications"] = count;
+                Console.WriteLine($"Unread notifications for User ID {userId}: {count}");
             }
-            catch
+            catch (Exception ex)
             {
-                ViewData["UnreadNotifications"] = 0; // Fallback in case database isn't ready
+                Console.WriteLine($"SetUnreadNotifications error: {ex.Message}\nStackTrace: {ex.StackTrace}");
+                ViewData["UnreadNotifications"] = 0;
             }
         }
     }

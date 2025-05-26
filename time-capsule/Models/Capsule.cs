@@ -1,4 +1,6 @@
-﻿namespace time_capsule.Models
+﻿using Models;
+
+namespace time_capsule.Models
 {
     public class Capsule
     {
@@ -10,6 +12,6 @@
         public string? ImagePath { get; set; } 
         public int UserId { get; set; }
         public User? User { get; set; }
-        public List<Notification> Notifications { get; set; } = new List<Notification>();
+        public List<Notifications> Notifications { get; set; } = new List<Notifications>();
     }
 }

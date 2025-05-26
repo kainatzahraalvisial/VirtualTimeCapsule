@@ -7,35 +7,63 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<main class="dashboard-content p-4">
-    <div id="particles-js" class="position-fixed top-0 start-0 w-100 h-100"></div>
-    <div class="main-content-area">
-        <h2 class="mb-4 cosmic-text">Create Capsule</h2>
-        @if (ViewData["ErrorMessage"] != null)
-        {
-            <div class="alert alert-danger">@ViewData["ErrorMessage"]</div>
-        }
-        <form asp-action="Create" method="post" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="title" class="form-label">Capsule Title</label>
-                <input type="text" class="form-control" id="title" name="title" required />
-            </div>
-            <div class="mb-3">
-                <label for="content" class="form-label">Capsule Content</label>
-                <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
-            </div>
-            <div class="mb-3">
-                <label for="openDate" class="form-label">Unlock Date and Time</label>
-                <input type="datetime-local" class="form-control" id="openDate" name="openDate" required />
-            </div>
-            <div class="mb-3">
-                <label for="image" class="form-label">Upload Image (Optional)</label>
-                <input type="file" class="form-control" id="image" name="image" accept="image/*" />
-            </div>
-            <button type="submit" class="btn btn-primary cosmic-button">Create Capsule</button>
-        </form>
+<h2 class="mb-4 cosmic-text">Create Capsule</h2>
+@if (ViewData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">@ViewData["ErrorMessage"]</div>
+}
+<form asp-action="Create" method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="title" class="form-label">Capsule Title</label>
+        <input type="text" class="form-control" id="title" name="title" required />
     </div>
-</main>
+    <div class="mb-3">
+        <label for="content" class="form-label">Capsule Content</label>
+        <textarea class="form-control" id="content" name="content" rows="5" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label for="openDate" class="form-label">Unlock Date and Time</label>
+        <input type="datetime-local" class="form-control" id="openDate" name="openDate" required />
+    </div>
+    <div class="mb-3">
+        <label for="image" class="form-label">Upload Image (Optional)</label>
+        <input type="file" class="form-control" id="image" name="image" accept="image/*" />
+    </div>
+    <button type="submit" class="btn btn-primary cosmic-button">Create Capsule</button>
+</form>
 
 @section Scripts {
+    <script>
+        console.log('Initializing Particles.js for Create page');
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 100, density: { enable: true, value_area: 800 } },
+                color: { value: "#f5be41" },
+                shape: { type: "circle" },
+                opacity: { value: 1, random: false },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#ff009d",
+                    opacity: 1,
+                    width: 1
+                },
+                move: { enable: true, speed: 2, direction: "none", random: true }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "grab" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 300, line_linked: { opacity: 1 } },
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
 }

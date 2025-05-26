@@ -14,7 +14,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddControllersWithViews();
 
 // JWT Configuration
-var key = Encoding.ASCII.GetBytes("DC7385A854722BC4BCBC3B8D38F8B"); 
+var key = Encoding.ASCII.GetBytes("DC7385A854722BC4BCBC3B8D38F8B1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ");
 builder.Services.AddAuthentication(options =>
 {
     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -45,7 +45,6 @@ builder.Services.AddAuthentication(options =>
         }
     };
 });
-
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())

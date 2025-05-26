@@ -7,24 +7,55 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<main class="dashboard-content p-4">
-    <div id="particles-js" class="position-fixed top-0 start-0 w-100 h-100"></div>
-    <div class="main-content-area">
-        <h2 class="mb-4 cosmic-text">Profile</h2>
-        @if (Model != null)
-        {
-            <div class="card bg-dark text-white mb-3">
-                <div class="card-body">
-                    <h5 class="card-title">User Details</h5>
-                    <p class="card-text"><strong>Name:</strong> @Model.FirstName @Model.LastName</p>
-                    <p class="card-text"><strong>Email:</strong> @Model.Email</p>
-                </div>
-            </div>
-            <p>Placeholder: Add profile picture upload and user details editing in the future.</p>
-        }
-        else
-        {
-            <p class="text-danger">User not found.</p>
-        }
+<h2 class="mb-4 cosmic-text">Profile</h2>
+@if (Model != null)
+{
+    <div class="card bg-dark text-white mb-3">
+        <div class="card-body">
+            <h5 class="card-title">User Details</h5>
+            <p class="card-text"><strong>Name:</strong> @Model.FirstName @Model.LastName</p>
+            <p class="card-text"><strong>Email:</strong> @Model.Email</p>
+        </div>
     </div>
-</main>
+    <p>Placeholder: Add profile picture upload and user details editing in the future.</p>
+}
+else
+{
+    <p class="text-danger">User not found.</p>
+}
+
+@section Scripts {
+    <script>
+        console.log('Initializing Particles.js for Profile page');
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 100, density: { enable: true, value_area: 800 } },
+                color: { value: "#f5be41" },
+                shape: { type: "circle" },
+                opacity: { value: 1, random: false },
+                size: { value: 3, random: true },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: "#ff009d",
+                    opacity: 1,
+                    width: 1
+                },
+                move: { enable: true, speed: 2, direction: "none", random: true }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: {
+                    onhover: { enable: true, mode: "grab" },
+                    onclick: { enable: true, mode: "push" },
+                    resize: true
+                },
+                modes: {
+                    grab: { distance: 300, line_linked: { opacity: 1 } },
+                    push: { particles_nb: 4 }
+                }
+            },
+            retina_detect: true
+        });
+    </script>
+}

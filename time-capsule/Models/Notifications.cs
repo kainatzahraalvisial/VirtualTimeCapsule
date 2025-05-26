@@ -1,6 +1,8 @@
-﻿namespace time_capsule.Models
+﻿using time_capsule.Models;
+
+namespace Models
 {
-    public class Notification
+    public class Notifications
     {
         public int Id { get; set; }
         public int UserId { get; set; }
